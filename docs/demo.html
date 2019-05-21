@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>i18n-render demo</title>
+  <style>
+    .main {
+      padding: 80px;
+    }
+  </style>
+</head>
+<body>
+<div class="main">
+  <h1>i18n render</h1>
+  <p>change locale:</p>
+  <div class="controls">
+    <button class="control" data-locale="en">en</button>
+    <button class="control" data-locale="fr">fr</button>
+    <button class="control" data-locale="de">de</button>
+    <button class="control" data-locale="zh-CN">zh-CN</button>
+    <button class="control" data-locale="zh-HK">zh-HK</button>
+    <button class="control" data-locale="jp">jp</button>
+  </div>
+  <p>
+    current locale:
+    <span id="current" class="current"></span>
+  </p>
+  <h2>preview</h2>
+  <div class="demo">
+    <p id="preview" ir="example1"></p>
+  </div>
+  <hr>
+  <p>
+    text source from:
+    <a href="http://www.columbia.edu/~fdc/utf8/index.html">http://www.columbia.edu/~fdc/utf8/index.html</a>
+  </p>
+  <p>
+    built by
+    <a href="https://github.com/gucheen/i18n-render">gucheen @Github</a>
+  </p>
+</div>
+<script src="umd.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

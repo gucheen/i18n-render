@@ -1,0 +1,33 @@
+{
+  "name": "i18n-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "umd.js",
+  "scripts": {
+    "test": "ava",
+    "build": "rollup index.js --format=umd --name=I18nRender --file=umd.js",
+    "coverage": "nyc report --reporter=html"
+  },
+  "module": "index.js",
+  "keywords": [
+    "i18n",
+    "javascript",
+    "internationalization"
+  ],
+  "author": {
+    "name": "gucheen",
+    "email": "guchengf@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "js-cookie": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "ava": "^1.4.1",
+    "nyc": "^14.1.1",
+    "puppeteer": "^1.16.0",
+    "puppeteer-to-istanbul": "^1.2.2",
+    "rollup": "^1.12.3"
+  }
+}

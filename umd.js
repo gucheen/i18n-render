@@ -81,3 +81,4 @@
   return I18NRender;
 
 }));
+//# sourceMappingURL=umd.js.map

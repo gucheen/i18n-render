@@ -2,7 +2,7 @@ import test from 'ava';
 import * as path from 'path';
 import withPage from './_withPage';
 
-const url = 'file://' + path.resolve(__dirname, '../docs/demo.html');
+const url = 'file://' + path.resolve(__dirname, '../index.html');
 
 const TEXT = {
   example1: {

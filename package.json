@@ -5,7 +5,7 @@
   "main": "umd.js",
   "scripts": {
     "test": "ava",
-    "build": "rollup index.js --format=umd --name=I18nRender --file=umd.js",
+    "build": "rollup index.js --format=umd --name=I18nRender --file=umd.js -m",
     "coverage": "nyc report --reporter=html"
   },
   "module": "index.js",
@@ -19,9 +19,7 @@
     "email": "guchengf@gmail.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "js-cookie": "^2.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "ava": "^1.4.1",

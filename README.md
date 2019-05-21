@@ -66,6 +66,24 @@ Get the i18n text of the target text with `key`
 ### render()
 Render all i18n-render elements in page.
 
+## example
+```html
+<body>
+  <p ir="example1">这是一段默认的中文</p>
+</body>
+```
+```js
+// import I18nRender from 'i18n-render';
+
+const i18n = new I18nRender({
+  source,
+  pageTextLocale: 'zh',
+});
+document.addEventListener('DOMContentLoaded', () => {
+  i18n.render();
+});
+```
+
 ## MIT License
 
 Copyright (c) 2019 Cheng Gu

@@ -12,7 +12,8 @@
   "types": "index.d.ts",
   "files": [
     "index.js",
-    "umd.js"
+    "umd.js",
+    "index.d.ts"
   ],
   "repository": "gucheen/i18n-render",
   "keywords": [

@@ -19,3 +19,5 @@ declare class I18nRender {
 
   render(): void;
 }
+
+export default I18nRender;

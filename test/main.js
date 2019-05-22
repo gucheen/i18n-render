@@ -26,6 +26,20 @@ test('auto detect browser languages settings "en"', withPage, async (t, page) =>
   t.is(currentText, TEXT.example1[currentLocale]);
 });
 
+test('add i18n css classes to html body', withPage, async (t, page) => {
+  await page.goto(url, {
+    waitUntil: 'networkidle2',
+  });
+  await page.waitFor(1000);
+  const bodyClass = await page.evaluate(() => document.body.className);
+  t.is(bodyClass, 'i18n-render i18n-render-locale-en i18n-render-rendered');
+  const controls = await page.$$('.control');
+  await (await controls[1]).click();
+  const newBodyClass = await page.evaluate(() => document.body.className);
+  t.true(newBodyClass.indexOf('i18n-render-locale-fr') > -1);
+  t.true(newBodyClass.indexOf('i18n-render-locale-en') === -1);
+});
+
 test('manual change locale and rerender', withPage, async (t, page) => {
   await page.goto(url);
   const controls = Array.from(await page.$$('.control'));

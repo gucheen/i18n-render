@@ -1,7 +1,7 @@
 {
   "name": "i18n-render",
   "version": "1.0.0",
-  "description": "",
+  "description": "tiny i18n solution for tiny projects",
   "main": "umd.js",
   "scripts": {
     "test": "ava",
@@ -9,10 +9,17 @@
     "coverage": "nyc report --reporter=html"
   },
   "module": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "umd.js"
+  ],
+  "repository": "gucheen/i18n-render",
   "keywords": [
     "i18n",
     "javascript",
-    "internationalization"
+    "internationalization",
+    "i18n-js"
   ],
   "author": {
     "name": "gucheen",

@@ -5,7 +5,7 @@ tiny i18n solution for tiny projects.
 
 The i18n-render's structure is `key -> translation dictionary`. While the translation dict is `locale -> text`.
 
-In short, i18n-render take a `key` to get the translation dict, then get translated text with `locale`.
+In short, i18n-render take a `key` to get the translation dictionary, then get translated text with `locale`.
 
 ## Source Configuration
 
@@ -70,12 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
 | --- | --- | --- |
 | source | `Object<string, string>` | Translation dictionaries for various languages|
 | locale | `string` | Set locale directly instead of auto detect|
-| pageTextLocale | `string` | If your page already has text in a certain language, setting this parameter can prevent the re-rendering of this language, and you do not need to provide translation of this language.
+| pageTextLocale | `string` | If your page already has text in a certain language, setting this parameter can prevent the re-rendering of this language, and you do not need to provide the translation of this language.
 | fullLangTag | `boolean` | I18n-render uses a short locale tag by default, such as `en`, `fr`, `de`, `jp`. However, languages can distinguish regions, such as `zh-CN` and `zh-HK`, which need two different translation versions. In this case, `fullLangTag: true` can be set, and the configuration items of the language will become complete modes, such as `en-US` and `zh-CN`
 
 ### getLocale() => string
 
-Get current locale of i18n-render.
+Get the current locale of i18n-render.
 
 ### setLocale()
 Change to another locale manualy.
@@ -87,8 +87,8 @@ Change to another locale manualy.
 ### getText() => string
 Get the i18n text of the target text with `key`
 
-- **key** `string` the key of text in translation dict
-- **locale** `string?` the locale want to use, **default to current locale of i18n-render**
+- **key** `string` the key of text in the translation dictionary
+- **locale** `string?` the locale want to use, **default to the current locale of i18n-render**
 - **fallback** `string?` this fallback text will be used if the target statement does not have a translation dictionary configured or if there is no corresponding language setting.
 
 ### render()

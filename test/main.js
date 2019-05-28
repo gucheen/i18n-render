@@ -28,7 +28,6 @@ test('auto detect browser languages settings "en"', withPage, async (t, page) =>
   await page.goto(url, {
     waitUntil: 'networkidle2',
   });
-  await page.waitFor(1000);
   const currentLocale = await page.evaluate(() => document.getElementById('current').textContent);
   t.is(currentLocale, 'en');
   const currentText = await page.evaluate(() => document.getElementById('preview').textContent);
@@ -41,7 +40,6 @@ test('add i18n css classes to html body', withPage, async (t, page) => {
   await page.goto(url, {
     waitUntil: 'networkidle2',
   });
-  await page.waitFor(1000);
   const bodyClass = await page.evaluate(() => document.body.className);
   t.is(bodyClass, 'i18n-render i18n-render-locale-en i18n-render-rendered');
   const controls = await page.$$('.control');
@@ -62,4 +60,28 @@ test('manual change locale and rerender', withPage, async (t, page) => {
     const currentImage = await page.evaluate(() => document.getElementById('image-preview').src);
     t.is(currentImage, TEXT.example_image[locale]);
   }
+});
+
+test('persist locale setting', withPage, async (t, page) => {
+  const PERSIST_LOCALE = 'zh-CN';
+  await page.goto(url);
+  let currentLocale = await page.evaluate(() => document.getElementById('current').textContent);
+  t.is(currentLocale, 'en');
+  let currentText = await page.evaluate(() => document.getElementById('preview').textContent);
+  t.is(currentText, TEXT.example1[currentLocale]);
+  await page.evaluate((PERSIST_LOCALE) => {
+    i18n.setLocale({
+      locale: PERSIST_LOCALE,
+      persist: true,
+    });
+  }, PERSIST_LOCALE);
+  currentText = await page.evaluate(() => document.getElementById('preview').textContent);
+  t.is(currentText, TEXT.example1[PERSIST_LOCALE]);
+  await page.reload({
+    waitUntil: 'networkidle2',
+  });
+  currentLocale = await page.evaluate(() => document.getElementById('current').textContent);
+  t.is(currentLocale, PERSIST_LOCALE);
+  currentText = await page.evaluate(() => document.getElementById('preview').textContent);
+  t.is(currentText, TEXT.example1[PERSIST_LOCALE]);
 });

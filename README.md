@@ -94,6 +94,9 @@ Get the i18n text of the target text with `key`
 ### render()
 Render all i18n-render elements in page.
 
+## Browser support
+The latest version of Chrome, Firefox, Edge, and Safari.
+
 ## MIT License
 
 Copyright (c) 2019 Cheng Gu

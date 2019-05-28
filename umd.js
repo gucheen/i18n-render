@@ -6,7 +6,7 @@
 
   const PERSIST_KEY = 'i18n-render-locale';
   const LOCALE_FORMAT = /^\w{2}(-\w{2})?$/;
-  const detectStorage = typeof Storage !== void(0);
+  const detectStorage = typeof localStorage !== 'undefined';
   const getNavigatorLanguage = () => (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.language || navigator.browserLanguage || 'cn';
 
   class I18NRender {

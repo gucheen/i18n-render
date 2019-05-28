@@ -6,7 +6,8 @@
   "scripts": {
     "test": "ava",
     "build": "rollup index.js --format=umd --name=I18nRender --file=umd.js -m",
-    "coverage": "nyc report --reporter=html"
+    "coverage": "nyc report --reporter=html",
+    "dev": "rollup index.js --format=umd --name=I18nRender --file=umd.js -m -w"
   },
   "module": "index.js",
   "types": "index.d.ts",

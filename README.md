@@ -5,7 +5,7 @@ tiny i18n solution for tiny projects.
 
 The i18n-render's structure is `key -> translation dictionary`. While the translation dict is `locale -> text`.
 
-In short, i18n-render take a `key` to get the translation dict, then get translated text with `locale`
+In short, i18n-render take a `key` to get the translation dict, then get translated text with `locale`.
 
 ## Source Configuration
 
@@ -19,6 +19,14 @@ const source = {
     'zh-HK': '我能吞下玻璃而不傷身體。',
     jp: '私はガラスを食べられます。それは私を傷つけません。',
   },
+  example_image: {
+    en: 'https://source-image.path/en.jpg',
+    fr: 'https://source-image.path/fr.jpg',
+    de: 'https://source-image.path/de.jpg',
+    'zh-CN': 'https://source-image.path/zh-CN.jpg',
+    'zh-HK': 'https://source-image.path/zh-HK.jpg',
+    jp: 'https://source-image.path/jp.jpg',
+  },
 };
 
 // or
@@ -31,7 +39,27 @@ const source = {
     'zh-HK': '我能吞下玻璃而不傷身體。',
     'jp-JP': '私はガラスを食べられます。それは私を傷つけません。',
   },
-}
+};
+```
+
+## Usage
+```html
+<body>
+  <p ir="example1">这是一段默认的中文</p>
+  <img src="https://default-image.path" alt="" ir-src="example_image">
+  <img src="" alt="" ir-srcset="example_image_srcset">
+</body>
+```
+```js
+// import I18nRender from 'i18n-render';
+
+const i18n = new I18nRender({
+  source,
+  pageTextLocale: 'zh',
+});
+document.addEventListener('DOMContentLoaded', () => {
+  i18n.render();
+});
 ```
 
 ## API
@@ -65,24 +93,6 @@ Get the i18n text of the target text with `key`
 
 ### render()
 Render all i18n-render elements in page.
-
-## example
-```html
-<body>
-  <p ir="example1">这是一段默认的中文</p>
-</body>
-```
-```js
-// import I18nRender from 'i18n-render';
-
-const i18n = new I18nRender({
-  source,
-  pageTextLocale: 'zh',
-});
-document.addEventListener('DOMContentLoaded', () => {
-  i18n.render();
-});
-```
 
 ## MIT License
 

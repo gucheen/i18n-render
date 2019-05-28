@@ -6,7 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>i18n-render demo</title>
   <style>
-    body,html{margin:0}body{padding:2em}a{word-break:break-all}pre{width:100%;padding:1em;overflow:auto}code,pre{background-color:#eee}button{background-image:-webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));background-image:-webkit-linear-gradient(top,#f5f5f5,#f1f1f1);-webkit-border-radius:2px;-webkit-user-select:none;background-color:#f2f2f2;border:1px solid #f2f2f2;border-radius:4px;color:#5f6368;cursor:pointer;font-family:arial,sans-serif;font-size:14px;margin:11px 4px;min-width:54px;padding:0 16px;text-align:center;height:36px;line-height:27px}button:hover{background-image:-webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));background-image:-webkit-linear-gradient(top,#f8f8f8,#f1f1f1);-webkit-box-shadow:0 1px 1px rgba(0,0,0,.1);background-color:#f8f8f8;background-image:linear-gradient(top,#f8f8f8,#f1f1f1);background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1);border:1px solid #c6c6c6;box-shadow:0 1px 1px rgba(0,0,0,.1);color:#222}button:focus{border:1px solid #4d90fe;outline:none}@media screen and (max-width:900px){body{padding:1em}}
+    body,html{margin:0}body{padding:2em}a{word-break:break-all}pre{padding:1em;overflow:auto}code,pre{background-color:#eee}button{background-image:-webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));background-image:-webkit-linear-gradient(top,#f5f5f5,#f1f1f1);-webkit-border-radius:2px;-webkit-user-select:none;background-color:#f2f2f2;border:1px solid #f2f2f2;border-radius:4px;color:#5f6368;cursor:pointer;font-family:arial,sans-serif;font-size:14px;margin:11px 4px;min-width:54px;padding:0 16px;text-align:center;height:36px;line-height:27px}button:hover{background-image:-webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));background-image:-webkit-linear-gradient(top,#f8f8f8,#f1f1f1);-webkit-box-shadow:0 1px 1px rgba(0,0,0,.1);background-color:#f8f8f8;background-image:linear-gradient(top,#f8f8f8,#f1f1f1);background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1);border:1px solid #c6c6c6;box-shadow:0 1px 1px rgba(0,0,0,.1);color:#222}button:focus{border:1px solid #4d90fe;outline:none}@media screen and (max-width:900px){body{padding:1em}}
+    #preview {
+      line-height: 22px;
+      height: 22px;
+    }
+    #image-preview {
+      display: block;
+      width: 300px;
+      height: 200px;
+    }
   </style>
 </head>
 <body>
@@ -25,9 +34,13 @@
   current locale:
   <span id="current" class="current"></span>
 </p>
-<h2>preview</h2>
+<h2>text content preview</h2>
 <div class="demo">
   <p id="preview" ir="example1"></p>
+</div>
+<h2>image source preivew</h2>
+<div class="demo">
+  <img id="image-preview" src="" ir-src="example_image" alt="">
 </div>
 <hr>
 <p>
@@ -38,6 +51,9 @@
   built by
   <a href="https://github.com/gucheen/i18n-render">gucheen @Github</a>
 </p>
+
+
+<!-- documentation -->
 <h2 id="design">Design</h2>
 <p>The i18n-render&#39;s structure is <code>key -&gt; translation dictionary</code>. While the translation dict is
   <code>locale -&gt; text</code>.</p>

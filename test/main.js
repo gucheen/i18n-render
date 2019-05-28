@@ -13,6 +13,15 @@ const TEXT = {
     'zh-HK': '我能吞下玻璃而不傷身體。',
     jp: '私はガラスを食べられます。それは私を傷つけません。',
   },
+  example_image: {
+    en: 'https://dummyimage.com/300x200/000/fff&text=en',
+    fr: 'https://dummyimage.com/300x200/000/fff&text=fr',
+    de: 'https://dummyimage.com/300x200/000/fff&text=de',
+    'zh-CN': 'https://dummyimage.com/300x200/000/fff&text=zh-CN',
+    'zh-HK': 'https://dummyimage.com/300x200/000/fff&text=zh-HK',
+    jp: 'https://dummyimage.com/300x200/000/fff&text=jp',
+    zh: 'https://dummyimage.com/300x200/000/fff&text=zh',
+  },
 };
 
 test('auto detect browser languages settings "en"', withPage, async (t, page) => {
@@ -24,6 +33,8 @@ test('auto detect browser languages settings "en"', withPage, async (t, page) =>
   t.is(currentLocale, 'en');
   const currentText = await page.evaluate(() => document.getElementById('preview').textContent);
   t.is(currentText, TEXT.example1[currentLocale]);
+  const currentImage = await page.evaluate(() => document.getElementById('image-preview').src);
+  t.is(currentImage, TEXT.example_image[currentLocale]);
 });
 
 test('add i18n css classes to html body', withPage, async (t, page) => {
@@ -48,5 +59,7 @@ test('manual change locale and rerender', withPage, async (t, page) => {
     await con.click();
     const currentText = await page.evaluate(() => document.getElementById('preview').textContent);
     t.is(currentText, TEXT.example1[locale]);
+    const currentImage = await page.evaluate(() => document.getElementById('image-preview').src);
+    t.is(currentImage, TEXT.example_image[locale]);
   }
 });

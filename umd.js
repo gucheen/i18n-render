@@ -75,8 +75,18 @@
       if (this.locale === this.pageTextLocale) {
         return;
       }
+      this.renderText();
+      this.renderSource();
+      bodyClasses.add('i18n-render-rendered');
+    }
+
+    renderText() {
       const elements = document.querySelectorAll('[ir]');
-      for (let i = 0; i < elements.length; i++) {
+      const len = elements.length;
+      if (len === 0) {
+        return;
+      }
+      for (let i = 0; i < len; i++) {
         const element = elements[i];
         const text = this.getText({
           key: element.getAttribute('ir'),
@@ -87,7 +97,39 @@
           element.textContent = text;
         }
       }
-      bodyClasses.add('i18n-render-rendered');
+    }
+
+    renderSource() {
+      const elements = document.querySelectorAll('[ir-src]');
+      const len = elements.length;
+      if (len) {
+        for (let i = 0; i < len; i++) {
+          const element = elements[i];
+          const text = this.getText({
+            key: element.getAttribute('ir-src'),
+            locale: this.locale,
+          });
+          const type = typeof text;
+          if (type === 'string') {
+            element.src = text;
+          }
+        }
+      }
+      const srcsetElements = document.querySelectorAll('ir-srcset');
+      const len2 = srcsetElements.length;
+      if (len2) {
+        for (let i = 0; i < len2; i++) {
+          const element = srcsetElements[i];
+          const text = this.getText({
+            key: element.getAttribute('ir-src'),
+            locale: this.locale,
+          });
+          const type = typeof text;
+          if (type === 'string') {
+            element.srcset = text;
+          }
+        }
+      }
     }
   }
 

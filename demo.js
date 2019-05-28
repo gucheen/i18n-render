@@ -8,6 +8,15 @@ const TEXT = {
     jp: '私はガラスを食べられます。それは私を傷つけません。',
     zh: '我能吞下玻璃而不伤身体。',
   },
+  example_image: {
+    en: 'https://dummyimage.com/300x200/000/fff&text=en',
+    fr: 'https://dummyimage.com/300x200/000/fff&text=fr',
+    de: 'https://dummyimage.com/300x200/000/fff&text=de',
+    'zh-CN': 'https://dummyimage.com/300x200/000/fff&text=zh-CN',
+    'zh-HK': 'https://dummyimage.com/300x200/000/fff&text=zh-HK',
+    jp: 'https://dummyimage.com/300x200/000/fff&text=jp',
+    zh: 'https://dummyimage.com/300x200/000/fff&text=zh',
+  },
 };
 
 const current = document.getElementsByClassName('current')[0];

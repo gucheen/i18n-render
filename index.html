@@ -55,33 +55,56 @@
 
 <!-- documentation -->
 <h2 id="design">Design</h2>
-<p>The i18n-render&#39;s structure is <code>key -&gt; translation dictionary</code>. While the translation dict is
-  <code>locale -&gt; text</code>.</p>
-<p>In short, i18n-render take a <code>key</code> to get the translation dict, then get translated text with <code>locale</code>
-</p>
+<p>The i18n-render&#39;s structure is <code>key -&gt; translation dictionary</code>. While the translation dict is <code>locale -&gt; text</code>.</p>
+<p>In short, i18n-render take a <code>key</code> to get the translation dict, then get translated text with <code>locale</code>.</p>
 <h2 id="source-configuration">Source Configuration</h2>
-<pre><code class="lang-js">const source = {
+<pre><code class="lang-js">const <span class="hljs-built_in">source</span> = {
   example1: {
-    en: &#39;I can eat glass and it doesn\&#39;t hurt me.&#39;,
-    fr: &#39;Je peux manger du verre, ça ne me fait pas mal.&#39;,
-    de: &#39;Ich kann Glas essen, ohne mir zu schaden.&#39;,
-    &#39;zh-CN&#39;: &#39;我能吞下玻璃而不伤身体。&#39;,
-    &#39;zh-HK&#39;: &#39;我能吞下玻璃而不傷身體。&#39;,
-    jp: &#39;私はガラスを食べられます。それは私を傷つけません。&#39;,
+    en: <span class="hljs-string">'I can eat glass and it doesn\'</span>t hurt me.<span class="hljs-string">',
+    fr: '</span>Je peux manger du verre, ça ne me fait pas mal.<span class="hljs-string">',
+    de: '</span>Ich kann Glas essen, ohne mir zu schaden.<span class="hljs-string">',
+    '</span>zh-CN<span class="hljs-string">': '</span>我能吞下玻璃而不伤身体。<span class="hljs-string">',
+    '</span>zh-HK<span class="hljs-string">': '</span>我能吞下玻璃而不傷身體。<span class="hljs-string">',
+    jp: '</span>私はガラスを食べられます。それは私を傷つけません。<span class="hljs-string">',
+  },
+  example_image: {
+    en: '</span>https://<span class="hljs-built_in">source</span>-image.path/en.jpg<span class="hljs-string">',
+    fr: '</span>https://<span class="hljs-built_in">source</span>-image.path/fr.jpg<span class="hljs-string">',
+    de: '</span>https://<span class="hljs-built_in">source</span>-image.path/de.jpg<span class="hljs-string">',
+    '</span>zh-CN<span class="hljs-string">': '</span>https://<span class="hljs-built_in">source</span>-image.path/zh-CN.jpg<span class="hljs-string">',
+    '</span>zh-HK<span class="hljs-string">': '</span>https://<span class="hljs-built_in">source</span>-image.path/zh-HK.jpg<span class="hljs-string">',
+    jp: '</span>https://<span class="hljs-built_in">source</span>-image.path/jp.jpg<span class="hljs-string">',
   },
 };
 
 // or
 const source = {
   example1: {
-    &#39;en-US&#39;: &#39;I can eat glass and it doesn\&#39;t hurt me.&#39;,
-    &#39;fr-FR&#39;: &#39;Je peux manger du verre, ça ne me fait pas mal.&#39;,
-    &#39;de-DE&#39;: &#39;Ich kann Glas essen, ohne mir zu schaden.&#39;,
-    &#39;zh-CN&#39;: &#39;我能吞下玻璃而不伤身体。&#39;,
-    &#39;zh-HK&#39;: &#39;我能吞下玻璃而不傷身體。&#39;,
-    &#39;jp-JP&#39;: &#39;私はガラスを食べられます。それは私を傷つけません。&#39;,
+    '</span>en-US<span class="hljs-string">': '</span>I can eat glass and it doesn\<span class="hljs-string">'t hurt me.'</span>,
+    <span class="hljs-string">'fr-FR'</span>: <span class="hljs-string">'Je peux manger du verre, ça ne me fait pas mal.'</span>,
+    <span class="hljs-string">'de-DE'</span>: <span class="hljs-string">'Ich kann Glas essen, ohne mir zu schaden.'</span>,
+    <span class="hljs-string">'zh-CN'</span>: <span class="hljs-string">'我能吞下玻璃而不伤身体。'</span>,
+    <span class="hljs-string">'zh-HK'</span>: <span class="hljs-string">'我能吞下玻璃而不傷身體。'</span>,
+    <span class="hljs-string">'jp-JP'</span>: <span class="hljs-string">'私はガラスを食べられます。それは私を傷つけません。'</span>,
   },
-}
+};
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">ir</span>=<span class="hljs-string">"example1"</span>&gt;</span>这是一段默认的中文<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://default-image.path"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ir-src</span>=<span class="hljs-string">"example_image"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span> <span class="hljs-attr">ir-srcset</span>=<span class="hljs-string">"example_image_srcset"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-regexp">//</span> import I18nRender from <span class="hljs-string">'i18n-render'</span>;
+
+const i18n = <span class="hljs-keyword">new</span> I18nRender({
+  source,
+  pageTextLocale: <span class="hljs-string">'zh'</span>,
+});
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  i18n.render();
+});
 </code></pre>
 <h2 id="api">API</h2>
 <h3 id="class-i18nrender-constructor">class I18nRender constructor</h3>
@@ -107,18 +130,12 @@ const source = {
   <tr>
     <td>pageTextLocale</td>
     <td><code>string</code></td>
-    <td>If your page already has text in a certain language, setting this parameter can prevent the re-rendering of
-      this language, and you do not need to provide translation of this language.
-    </td>
+    <td>If your page already has text in a certain language, setting this parameter can prevent the re-rendering of this language, and you do not need to provide translation of this language.</td>
   </tr>
   <tr>
     <td>fullLangTag</td>
     <td><code>boolean</code></td>
-    <td>I18n-render uses a short locale tag by default, such as <code>en</code>, <code>fr</code>, <code>de</code>,
-      <code>jp</code>. However, languages can distinguish regions, such as <code>zh-CN</code> and <code>zh-HK</code>,
-      which need two different translation versions. In this case, <code>fullLangTag: true</code> can be set, and the
-      configuration items of the language will become complete modes, such as <code>en-US</code> and
-      <code>zh-CN</code></td>
+    <td>I18n-render uses a short locale tag by default, such as <code>en</code>, <code>fr</code>, <code>de</code>, <code>jp</code>. However, languages can distinguish regions, such as <code>zh-CN</code> and <code>zh-HK</code>, which need two different translation versions. In this case, <code>fullLangTag: true</code> can be set, and the configuration items of the language will become complete modes, such as <code>en-US</code> and <code>zh-CN</code></td>
   </tr>
   </tbody>
 </table>
@@ -128,38 +145,18 @@ const source = {
 <p>Change to another locale manualy.</p>
 <ul>
   <li><strong>locale</strong> <code>string</code> the target locale</li>
-  <li><strong>persist</strong> <code>boolean?,false</code> store locale to localStorage, next time i18n-render will
-    init with this locale
-  </li>
+  <li><strong>persist</strong> <code>boolean?,false</code> store locale to localStorage, next time i18n-render will init with this locale</li>
   <li><strong>rerender</strong> <code>boolean?,true</code> re-render page text after change locale</li>
 </ul>
 <h3 id="gettext-string">getText() =&gt; string</h3>
 <p>Get the i18n text of the target text with <code>key</code></p>
 <ul>
   <li><strong>key</strong> <code>string</code> the key of text in translation dict</li>
-  <li><strong>locale</strong> <code>string?</code> the locale want to use, <strong>default to current locale of
-    i18n-render</strong></li>
-  <li><strong>fallback</strong> <code>string?</code> this fallback text will be used if the target statement does not
-    have a translation dictionary configured or if there is no corresponding language setting.
-  </li>
+  <li><strong>locale</strong> <code>string?</code> the locale want to use, <strong>default to current locale of i18n-render</strong></li>
+  <li><strong>fallback</strong> <code>string?</code> this fallback text will be used if the target statement does not have a translation dictionary configured or if there is no corresponding language setting.</li>
 </ul>
 <h3 id="render-">render()</h3>
 <p>Render all i18n-render elements in page.</p>
-<h2 id="example">example</h2>
-<pre><code class="lang-html">&lt;body&gt;
-  &lt;p ir=&quot;example1&quot;&gt;这是一段默认的中文&lt;/p&gt;
-&lt;/body&gt;
-</code></pre>
-<pre><code class="lang-js">// import I18nRender from &#39;i18n-render&#39;;
-
-const i18n = new I18nRender({
-  source,
-  pageTextLocale: &#39;zh&#39;,
-});
-document.addEventListener(&#39;DOMContentLoaded&#39;, () =&gt; {
-  i18n.render();
-});
-</code></pre>
 <h2 id="mit-license">MIT License</h2>
 <p>Copyright (c) 2019 Cheng Gu</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy

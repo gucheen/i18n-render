@@ -1,4 +1,7 @@
 # i18n-render
+[![Build Status](https://travis-ci.com/gucheen/i18n-render.svg?branch=master)](https://travis-ci.com/gucheen/i18n-render)
+[![npm version](http://img.shields.io/npm/v/i18n-render.svg?style=flat)](https://npmjs.org/package/i18n-render "View this project on npm")
+
 tiny i18n solution for tiny projects.
 
 ## Design

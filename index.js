@@ -112,13 +112,13 @@ export default class I18NRender {
         }
       }
     }
-    const srcsetElements = document.querySelectorAll('ir-srcset');
+    const srcsetElements = document.querySelectorAll('[ir-srcset]');
     const len2 = srcsetElements.length;
     if (len2) {
       for (let i = 0; i < len2; i++) {
         const element = srcsetElements[i];
         const text = this.getText({
-          key: element.getAttribute('ir-src'),
+          key: element.getAttribute('ir-srcset'),
           locale: this.locale,
         });
         const type = typeof text;

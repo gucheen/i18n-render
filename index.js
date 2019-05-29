@@ -60,15 +60,18 @@ export default class I18NRender {
     if (!bodyClasses.contains('i18n-render')) {
       bodyClasses.add('i18n-render');
     }
-    if (this.lastLocaleClass && bodyClasses.contains(this.lastLocaleClass)) {
-      bodyClasses.remove(this.lastLocaleClass);
-    }
     const bodyClass = `i18n-render-locale-${this.locale}`;
-    this.lastLocaleClass = bodyClass;
-    bodyClasses.add(bodyClass);
-    if (this.locale === this.pageTextLocale) {
+    // If the page is originally this locale, it will not be rendered for the first time.
+    if (typeof this.lastLocaleClass === 'undefined' && this.locale === this.pageTextLocale) {
       return;
     }
+    // do not rerender if the locale was not changed actually
+    if (this.lastLocaleClass === bodyClass) {
+      return;
+    }
+    bodyClasses.remove(this.lastLocaleClass, 'i18n-render-rendered');
+    this.lastLocaleClass = bodyClass;
+    bodyClasses.add(bodyClass);
     this.renderText();
     this.renderSource();
     bodyClasses.add('i18n-render-rendered');

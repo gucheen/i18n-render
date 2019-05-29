@@ -7,7 +7,8 @@
     "test": "ava",
     "build": "rollup -c",
     "coverage": "nyc report --reporter=html",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "preversion": "npm run build"
   },
   "module": "index.js",
   "types": "index.d.ts",

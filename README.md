@@ -10,6 +10,8 @@ The i18n-render's structure is `key -> translation dictionary`. While the transl
 
 In short, i18n-render take a `key` to get the translation dictionary, then get translated text with `locale`.
 
+i18n-render will find all related HTML attributes(`ir`, `ir-src`, `ir-srcset`), get `key` from attributes' values.
+
 ## Source Configuration
 
 ```js
@@ -64,6 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
   i18n.render();
 });
 ```
+
+### CSS Classes
+
+CSS classes `i18n-render`, `i18n-render-locale-[currentLocale]`, `i18n-render-rendered` will be added to html `body`.
+
+Make it easy to define different CSS in different i18n state.
+
+`i18n-render-rendered` will only be added after the actual text replacement has occurred.
+
 
 ## API
 

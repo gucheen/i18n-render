@@ -14,13 +14,13 @@ const TEXT = {
     jp: '私はガラスを食べられます。それは私を傷つけません。',
   },
   example_image: {
-    en: 'https://dummyimage.com/300x200/000/fff&text=en',
-    fr: 'https://dummyimage.com/300x200/000/fff&text=fr',
-    de: 'https://dummyimage.com/300x200/000/fff&text=de',
-    'zh-CN': 'https://dummyimage.com/300x200/000/fff&text=zh-CN',
-    'zh-HK': 'https://dummyimage.com/300x200/000/fff&text=zh-HK',
-    jp: 'https://dummyimage.com/300x200/000/fff&text=jp',
-    zh: 'https://dummyimage.com/300x200/000/fff&text=zh',
+    en: 'https://placehold.co/300x200/000000/ffffff?text=en',
+    fr: 'https://placehold.co/300x200/000000/ffffff?text=fr',
+    de: 'https://placehold.co/300x200/000000/ffffff?text=de',
+    'zh-CN': 'https://placehold.co/300x200/000000/ffffff?text=zh-CN',
+    'zh-HK': 'https://placehold.co/300x200/000000/ffffff?text=zh-HK',
+    jp: 'https://placehold.co/300x200/000000/ffffff?text=jp',
+    zh: 'https://placehold.co/300x200/000000/ffffff?text=zh',
   },
 };
 
